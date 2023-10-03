@@ -11,14 +11,14 @@ public class Boleto implements Serializable {
     private String id;
     private String tipo;
     private Usuario user;
-
+    private String status = "Comprado";
     private String origen;
     private String destino;
 
     private int valor;
+
     private ArrayList<Maleta> equipaje = new ArrayList<>();
     private Asiento asiento;
-
     private Pasajero pasajero;
     
     //...precios
@@ -72,6 +72,7 @@ public class Boleto implements Serializable {
 
     //...Metodos get y set...
 
+
     public String getId() {
         return this.id;
     }
@@ -94,6 +95,14 @@ public class Boleto implements Serializable {
 
     public void setUser(Usuario user) {
         this.user = user;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getOrigen() {

@@ -20,7 +20,7 @@ public class App {
         int opcion;
 
         /* Espacio para iniciar sesion cargando cuenta o creando y guardando */
-        Usuario user = new Usuario(0, null, 0, null);
+        Usuario user = new Usuario();
 
         do {
             System.out.println("+ - - - - - - - - - - - - - +");
