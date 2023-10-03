@@ -3,11 +3,11 @@ package Aerolinea;
 import java.io.Serializable;// clase para serializar
 import java.util.ArrayList;
 
-public class Avion implements Serializable { // se crea la clase e implementa serializacion
+public class Vuelo implements Serializable { // se crea la clase e implementa serializacion
 
 	private static final long serialVersionUID; // atributo con el codigo de serializacion
 
-	private Asiento asientos; // se crean los atributos requeridos para la clase
+	ArrayList<Asiento> asientos = new ArrayList<>();
 	private final String AEROLINEA;
 	private final String ID;
 	private String horarioSalida;
@@ -16,7 +16,7 @@ public class Avion implements Serializable { // se crea la clase e implementa se
 	private final String ORIGEN;
 	private ArrayList<Maleta> equipajes = new ArrayList<>();
 
-	public Avion(String aerolinea, String id, String tiempoSalida, String tiempoLlegada, String Destino,
+	public Vuelo(String aerolinea, String id, String tiempoSalida, String tiempoLlegada, String Destino,
 			String origen) {
 		this.AEROLINEA = aerolinea;
 		this.ID = id;
@@ -26,30 +26,41 @@ public class Avion implements Serializable { // se crea la clase e implementa se
 		this.ORIGEN = origen;
 	}
 
-	private static void generarVuelos(int cantidad) {
+	public void generarAsientos(int economicos, int premium) {
 		/*
-		 * vuels = array
-		 * Imprime y muestra los vuelos
-		 * 
-		 * - Vuelos debe tener un metodo q sea para imprimir el vuelo
-		 * 
+		 * Dependiendo de la cantidad que se le pase, genera n asientos de tipo vip y
+		 * j asientos de tipo economico
 		 */
-		ArrayList<Avion> vuelos = new ArrayList<>();
-
-		for (int i = 0; i < cantidad; i++) {
-			// Generar vuelos y meterlos al array, devueve al array y puede mostrarse
-
+		for (int i = 1; i <= premium; i++) {
+			this.asientos.add(new Asiento("Vip", i));
 		}
+		for (int j = 1; j <= economicos; j++) {
+			this.asientos.add(new Asiento("Economico", j));
+		}
+	}
 
+	public String getOrigenDestino() {
+		/*
+		 * Regresa como string la informacion de origen - destino
+		 */
+		return this.ORIGEN + " - " + this.DESTINO;
+	}
+
+	public String getInfo() {
+		/*
+		 * Regresa como string la informacion de origen - destino
+		 */
+		String info = this.ORIGEN + " - " + this.DESTINO;
+		return info;
 	}
 
 	// ........
 
-	public Asiento getAsientos() {
+	public ArrayList<Asiento> getAsientos() {
 		return this.asientos;
 	}
 
-	public void setAsientos(Asiento asientos) {
+	public void setAsientos(ArrayList<Asiento> asientos) {
 		this.asientos = asientos;
 	}
 

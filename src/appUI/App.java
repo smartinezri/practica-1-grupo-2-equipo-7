@@ -69,19 +69,38 @@ public class App {
          * de boleto, y al final se asigna todo, se puede usar boleto para ir calculando
          * el precio y etc
          */
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ha seleccionado la opción Comprar vuelo");
-        System.out.println("Por favor ingrese el orgien");
-        System.out.println("Por favor ingrese el destino");
-        // Despues de haber creado el orgien y el destino necesito generar los vuelos
-        // Mostrar vuelos
-        // Necesitamos generar vuelos
+        System.out.println("Por favor ingrese el origen: ");
+        String origen = scanner.nextLine();
 
-        System.out.println("Selecciona por favor el vuelo");
+        System.out.println("Por favor ingrese el destino: ");
+        String destino = scanner.nextLine();
+
+        // Despues de haber creado el orgien y el destino necesito generar los vuelos y
+        // mostrarlos vuelo/precio por tipo de asiento
+        // Generar - Mostrar vuelos
+        ArrayList<Vuelo> vuelos = Aeropuerto.generarVuelos(5); // Cantidad de vuelos
+
+        for (int i = 0; i < vuelos.size(); i++) {
+            Vuelo vuelo = vuelos.get(i);
+            // Mostrar y enumerar (En proceso)
+            System.out.println("....");
+            System.out.println(i);
+            System.out.println(vuelo.getInfo());
+        }
+
+        System.out.println("Selecciona por favor el vuelo: ");
+        int indexVuelo = scanner.nextInt();
+        // Lee y genera los asientos
+        Vuelo vuelo = vuelos.get(indexVuelo);
+        vuelo.generarAsientos(10, 5);
 
         System.out.println("Los tipos de asientos disponibles son los siguientes:");
         // Primero muestra los precios de cada tipo de asiento, luego
         // Muestra los asientos disponibles y su tipo:
+
         System.out.println("Los asientos disponibles son los siguientes:");
 
         System.out.println("Seleccione el numero de asiento disponible");
