@@ -38,4 +38,38 @@ public class Usuario {
 
 	}
 
+	// ...get and set
+
+	public int getDinero() {
+		return this.dinero;
+	}
+
+	public void setDinero(int dinero) {
+		this.dinero = dinero;
+	}
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public int getMillas() {
+		return this.millas;
+	}
+
+	public void setMillas(int millas) {
+		this.millas = millas;
+	}
+
+	public Boleto getHistorial() {
+		return this.historial;
+	}
+
+	public void setHistorial(Boleto historial) {
+		this.historial = historial;
+	}
+
 }

@@ -26,31 +26,38 @@ public class Avion implements Serializable { // se crea la clase e implementa se
 		this.ORIGEN = origen;
 	}
 
-	public void addEquipaje(Maleta equipaje) {// añade equipaje a la lista de equipajes
-		this.equipajes.add(equipaje);
+	private static void generarVuelos(int cantidad) {
+		/*
+		 * vuels = array
+		 * Imprime y muestra los vuelos
+		 * 
+		 * - Vuelos debe tener un metodo q sea para imprimir el vuelo
+		 * 
+		 */
+		ArrayList<Avion> vuelos = new ArrayList<>();
+
+		for (int i = 0; i < cantidad; i++) {
+			// Generar vuelos y meterlos al array, devueve al array y puede mostrarse
+
+		}
+
 	}
 
-	public void deleteEquipaje(Maleta equipaje) {
-		this.equipajes.remove(equipaje);
-	}
-
-	public void setHorarioSalida(String horarioSalida) {
-		this.horarioSalida = horarioSalida;
-	}
-
-	public void setHorarioLlegada(String horariollegada) {
-		this.horarioLlegada = horariollegada;
-	}
+	// ........
 
 	public Asiento getAsientos() {
 		return this.asientos;
 	}
 
-	public String getAerolinea() {
+	public void setAsientos(Asiento asientos) {
+		this.asientos = asientos;
+	}
+
+	public String getAEROLINEA() {
 		return this.AEROLINEA;
 	}
 
-	public String getId() {
+	public String getID() {
 		return this.ID;
 	}
 
@@ -58,19 +65,32 @@ public class Avion implements Serializable { // se crea la clase e implementa se
 		return this.horarioSalida;
 	}
 
+	public void setHorarioSalida(String horarioSalida) {
+		this.horarioSalida = horarioSalida;
+	}
+
 	public String getHorarioLlegada() {
 		return this.horarioLlegada;
 	}
 
-	public String getDestino() {
+	public void setHorarioLlegada(String horarioLlegada) {
+		this.horarioLlegada = horarioLlegada;
+	}
+
+	public String getDESTINO() {
 		return this.DESTINO;
 	}
 
-	public String getOrigen() {
+	public String getORIGEN() {
 		return this.ORIGEN;
 	}
 
 	public ArrayList<Maleta> getEquipajes() {
 		return this.equipajes;
 	}
+
+	public void setEquipajes(ArrayList<Maleta> equipajes) {
+		this.equipajes = equipajes;
+	}
+
 }

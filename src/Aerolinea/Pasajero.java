@@ -24,4 +24,42 @@ public class Pasajero {
 
     }
 
+    // ...get and set
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean isTrabajador() {
+        return this.trabajador;
+    }
+
+    public boolean getTrabajador() {
+        return this.trabajador;
+    }
+
+    public void setTrabajador(boolean trabajador) {
+        this.trabajador = trabajador;
+    }
+
+    public Maleta getEquipaje() {
+        return this.equipaje;
+    }
+
+    public void setEquipaje(Maleta equipaje) {
+        this.equipaje = equipaje;
+    }
+
+    public Usuario getCuenta() {
+        return this.cuenta;
+    }
+
+    public void setCuenta(Usuario cuenta) {
+        this.cuenta = cuenta;
+    }
+
 }

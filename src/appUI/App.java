@@ -122,21 +122,4 @@ public class App {
         // Aquí puedes poner el código que deseas ejecutar para la Ver cuenta.
     }
 
-    private static void generarVuelos(int cantidad) {
-        /*
-         * vuels = array
-         * Imprime y muestra los vuelos
-         * 
-         * - Vuelos debe tener un metodo q sea para imprimir el vuelo
-         * 
-         */
-        ArrayList<Avion> vuelos = new ArrayList<>();
-
-        for (int i = 0; i < cantidad; i++) {
-            // Generar vuelos y meterlos al array, devueve al array y puede mostrarse
-
-        }
-
-    }
-
 }

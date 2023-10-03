@@ -17,12 +17,12 @@ public class Serializador {
     private static File rutaTempUsuario =  new File("src//basedatos//temp");
 
     for(
-    File RutaTempArchivoAvion:rutaTempAvion){
-        try{
-            PwAvion = new PrintWriter(RutaTempArchivoAvion)
-        } catch(FileNotFoundException e ){
-            e.PrintStackTrace()
-
+    File RutaTempArchivoAvion:rutaTempAvion)
+    {
+        try {
+            PwAvion = new PrintWriter(RutaTempArchivoAvion);
+        } catch (FileNotFoundException e) {
+            e.PrintStackTrace();
         }
     }
 }
