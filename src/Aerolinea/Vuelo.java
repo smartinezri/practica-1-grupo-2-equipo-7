@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Vuelo implements Serializable { // se crea la clase e implementa serializacion
 
-	private static final long serialVersionUID; // atributo con el codigo de serializacion
+	private static final long serialVersionUID = 0; // atributo con el codigo de serializacion
 
 	ArrayList<Asiento> asientos = new ArrayList<>();
 	private final String AEROLINEA;
@@ -32,10 +32,10 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		 * j asientos de tipo economico
 		 */
 		for (int i = 1; i <= premium; i++) {
-			this.asientos.add(new Asiento("Vip", i));
+			this.asientos.add(new Asiento("Vip", i, 100));
 		}
 		for (int j = 1; j <= economicos; j++) {
-			this.asientos.add(new Asiento("Economico", j));
+			this.asientos.add(new Asiento("Economico", j, 100));
 		}
 	}
 
@@ -54,7 +54,8 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		return info;
 	}
 
-	// ........
+
+	//...Metodos get y set...
 
 	public ArrayList<Asiento> getAsientos() {
 		return this.asientos;
@@ -68,9 +69,11 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		return this.AEROLINEA;
 	}
 
+
 	public String getID() {
 		return this.ID;
 	}
+
 
 	public String getHorarioSalida() {
 		return this.horarioSalida;
@@ -92,9 +95,11 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		return this.DESTINO;
 	}
 
+
 	public String getORIGEN() {
 		return this.ORIGEN;
 	}
+
 
 	public ArrayList<Maleta> getEquipajes() {
 		return this.equipajes;
@@ -103,5 +108,6 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 	public void setEquipajes(ArrayList<Maleta> equipajes) {
 		this.equipajes = equipajes;
 	}
+
 
 }

@@ -8,6 +8,7 @@ public class Usuario {
 
 	private int dinero;
 	private String id;
+	private String nombre;
 	private int millas;
 	private Boleto historial;
 
@@ -56,6 +57,14 @@ public class Usuario {
 		this.id = id;
 	}
 
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public int getMillas() {
 		return this.millas;
 	}
@@ -71,5 +80,6 @@ public class Usuario {
 	public void setHistorial(Boleto historial) {
 		this.historial = historial;
 	}
+
 
 }

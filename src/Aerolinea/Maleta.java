@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Maleta implements Serializable {
 
-    private final static long serialVersionUID;
+    private final static long serialVersionUID = 0;
 
     private int id;
 
@@ -37,7 +37,8 @@ public class Maleta implements Serializable {
                   // ancho
     }
 
-    // ...get and set
+
+    //...Metodos get y set...
 
     public int getId() {
         return this.id;
@@ -69,6 +70,14 @@ public class Maleta implements Serializable {
 
     public void setAncho(int ancho) {
         this.ancho = ancho;
+    }
+
+    public int getAlto() {
+        return this.alto;
+    }
+
+    public void setAlto(int alto) {
+        this.alto = alto;
     }
 
     public Pasajero getPropietario() {

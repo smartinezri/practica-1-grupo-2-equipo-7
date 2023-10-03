@@ -6,26 +6,21 @@ import Aerolinea.Usuario;
 import java.util.ArrayList;
 
 public class Pasajero {
-    private static final long serialVersionUID;
+    private static final long serialVersionUID = 0;
 
     private String nombre;
-    private boolean trabajador;
-    private Maleta equipaje;
-    private Usuario cuenta;
+    private Usuario user;
     private Boleto boleto;
 
-    public Pasajero(String nombre, boolean trabajador, Maleta equipaje, Usuario cuenta) {
-        this.nombre = nombre;
-        this.trabajador = trabajador;
-        this.equipaje = equipaje;
-        this.cuenta = cuenta;
+    private boolean trabajador;
+
+
+    public Pasajero(Usuario user, Boleto boleto) {
+        this.nombre = user.getNombre();
+        this.boleto = boleto;
     }
 
-    public void comprarBoleto() {
-
-    }
-
-    // ...get and set
+    //...Metodos get y set...
 
     public String getNombre() {
         return this.nombre;
@@ -33,6 +28,22 @@ public class Pasajero {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Usuario getUser() {
+        return this.user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    public Boleto getBoleto() {
+        return this.boleto;
+    }
+
+    public void setBoleto(Boleto boleto) {
+        this.boleto = boleto;
     }
 
     public boolean isTrabajador() {
@@ -47,20 +58,5 @@ public class Pasajero {
         this.trabajador = trabajador;
     }
 
-    public Maleta getEquipaje() {
-        return this.equipaje;
-    }
-
-    public void setEquipaje(Maleta equipaje) {
-        this.equipaje = equipaje;
-    }
-
-    public Usuario getCuenta() {
-        return this.cuenta;
-    }
-
-    public void setCuenta(Usuario cuenta) {
-        this.cuenta = cuenta;
-    }
 
 }

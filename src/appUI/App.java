@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class App {
 
-
     public static void main(String[] args) {
 
         // Crear las instancias de las clases
@@ -145,7 +144,7 @@ public class App {
 
                 boleto.addEquipaje(new Maleta());
                 System.out.println("Valor nuevo: ");
-                System.out.println(boleto.getPrecio());
+                System.out.println(boleto.getValor());
             }
             
 
