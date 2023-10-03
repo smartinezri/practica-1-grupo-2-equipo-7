@@ -132,7 +132,7 @@ public class App {
         System.out.println("Seleccione el numero de asiento disponible");
         int indexAsiento = scanner.nextInt();
         Asiento asiento = asientos.get(indexAsiento - 1);
-        boleto.setValorInicial(asiento.getValor());
+        boleto.setAsiento(asiento);
         // Si se selecciona y es valido se prosigue...
         // Se muestra una previsualizacion del precio
 
@@ -166,7 +166,6 @@ public class App {
 
                 System.out.println("> Ingrese el valor del alto de la maleta");
                 int alto = scanner.nextInt();
-                
 
                 boleto.addEquipaje(new Maleta(c, peso, largo, ancho, alto, boleto));
                 System.out.println("Valor nuevo del boleto: ");
@@ -182,9 +181,9 @@ public class App {
         // Se muestran todos los detalles de la compra y se pide la confirmacion para
         // pagar
         System.out.println("Mostrar el detalles");
-        System.out.println(vuelo.getInfo());
+        System.out.println(boleto.getInfo());
 
-        System.out.println("Confirmar, escriba 1/0");        
+        System.out.println("Confirmar, escriba 1/0");
         int confirmacion = scanner.nextInt();
 
         if (confirmacion == 1) {
@@ -192,14 +191,13 @@ public class App {
                 user.comprarBoleto(boleto);
                 boleto.asignarAsiento(asiento);
                 System.out.println("Boleto comprado con exito, detalles:");
-                System.out.println(boleto.getInfo());
-            }    
+            }
         } else {
             System.out.println("cancelado ñao ñao");
         }
         // Si se confirma se efectua el pago y se asigna todo.
         // --- nota, no se asigna nada hasta q se haya pagado y verificado ---
-        
+
     }
 
     private static void reasignarVuelo(Usuario user) {
@@ -213,5 +211,4 @@ public class App {
     private static void verCuenta(Usuario user) {
         // Aquí puedes poner el código que deseas ejecutar para la Ver cuenta.
     }
-
 }

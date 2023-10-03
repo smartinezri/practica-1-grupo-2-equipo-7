@@ -67,7 +67,7 @@ public class Boleto implements Serializable {
         this.updateValor();
     }
     public String getInfo() {
-        return "";
+        return "Precio: " + this.valor +  ", Tipo: " + this.tipo + ", Numero de asiento: " + this.asiento.getN_silla() + "...";
     }
 
 
@@ -144,6 +144,8 @@ public class Boleto implements Serializable {
 
     public void setAsiento(Asiento asiento) {
         this.asiento = asiento;
+        this.valorInicial = asiento.getValor();
+        this.tipo = asiento.getTipo();
     }
 
     public Pasajero getPasajero() {
