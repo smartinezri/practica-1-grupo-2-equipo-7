@@ -20,9 +20,10 @@ public class App {
         int opcion;
 
         /* Espacio para iniciar sesion cargando cuenta o creando y guardando */
+        Usuario user = new Usuario(0, null, 0, null);
 
         do {
-            System.out.println("   Menú:");
+            System.out.println("Menú:");
             System.out.println("1. Comprar vuelo");
             System.out.println("2. Reasignar vuelo");
             System.out.println("3. Cancelar vuelo");
@@ -34,19 +35,23 @@ public class App {
 
             switch (opcion) {
                 case 1:
-                    comprarVuelo();
+                    comprarVuelo(user);
+                    System.out.println("+ - - - - - - - - - - +");
                     break;
 
                 case 2:
-                    reasignarVuelo();
+                    reasignarVuelo(user);
+                    System.out.println("+ - - - - - - - - - - +");
                     break;
 
                 case 3:
-                    cancelarVuelo();
+                    cancelarVuelo(user);
+                    System.out.println("+ - - - - - - - - - - +");
                     break;
 
                 case 4:
-                    verCuenta();
+                    verCuenta(user);
+                    System.out.println("+ - - - - - - - - - - +");
                     break;
 
                 case 5:
@@ -66,7 +71,7 @@ public class App {
 
     }
 
-    private static void comprarVuelo() {
+    private static void comprarVuelo(Usuario user) {
         /*
          * Podemos ir dejando una variable local q vaya llevando los valores, puede ser
          * una instancia
@@ -74,8 +79,7 @@ public class App {
          * el precio y etc
          */
         Scanner scanner = new Scanner(System.in);
-        Usuario user = new Usuario(0, null, 0, null);
-
+        
         System.out.println("Ha seleccionado la opción Comprar vuelo");
         System.out.println("Por favor ingrese el origen: ");
         String origen = scanner.nextLine();
@@ -83,15 +87,17 @@ public class App {
         System.out.println("Por favor ingrese el destino: ");
         String destino = scanner.nextLine();
 
+        //Ingrese la cantidad de vuelos a generar?
+
         // Despues de haber creado el orgien y el destino necesito generar los vuelos y
         // mostrarlos vuelo/precio por tipo de asiento
         // Generar - Mostrar vuelos
-        ArrayList<Vuelo> vuelos = Aeropuerto.generarVuelos(5); // Cantidad de vuelos
+        ArrayList<Vuelo> vuelos = Aeropuerto.generarVuelos(5, origen, destino); // Cantidad de vuelos
 
         for (int i = 0; i < vuelos.size(); i++) {
             Vuelo vuelo = vuelos.get(i);
             // Mostrar y enumerar (En proceso)
-            System.out.println("....");
+            System.out.println(". . . . .");
             System.out.println(i);
             System.out.println(vuelo.getInfo());
         }
@@ -135,24 +141,32 @@ public class App {
             // precio..
             // Segun la cantidad de equipaje y los precios de cada uni
             int exit = 1;
+            int c = 0;
 
             do {
+                c += 1;
+                System.out.println(c);
                 System.out.println("...");
-                System.out.println("Ingrese el peso ...bla bla");
+                System.out.println("> Ingrese el peso de la maleta");
                 int peso = scanner.nextInt();
 
-                System.out.println("Ingrese el peso ...bla bla");
+                System.out.println("> Ingrese el valor del ancho de la maleta");
                 int ancho = scanner.nextInt();
 
-                System.out.println("Ingrese el peso ...bla bla");
+                System.out.println("> Ingrese el valor del largo de la maleta");
                 int largo = scanner.nextInt();
 
-                boleto.addEquipaje(new Maleta());
-                System.out.println("Valor nuevo: ");
-                System.out.println(boleto.getValor());
+                System.out.println("> Ingrese el valor del alto de la maleta");
+                int alto = scanner.nextInt();
+                
+
+                boleto.addEquipaje(new Maleta(c, peso, largo, ancho, alto, boleto));
+                System.out.println("Valor nuevo del boleto: ");
+                System.out.println("&" + boleto.getValor());
 
                 System.out.println("Desea agregar un equipaje mas o continuar? 1/0");
                 exit = scanner.nextInt();
+
             } while (exit == 1);
         }
 
@@ -167,17 +181,17 @@ public class App {
         boleto.asignarAsiento(asiento);
     }
 
-    private static void reasignarVuelo() {
+    private static void reasignarVuelo(Usuario user) {
         System.out.println("Ha seleccionado la opción Reasignar vuelo");
         // Aquí puedes poner el código que deseas ejecutar para la Reasignar vuelo.
     }
 
-    private static void cancelarVuelo() {
+    private static void cancelarVuelo(Usuario user) {
         System.out.println("Ha seleccionado la opción Cancelar vuelo");
         // Aquí puedes poner el código que deseas ejecutar para la Cancelar vuelo.
     }
 
-    private static void verCuenta() {
+    private static void verCuenta(Usuario user) {
         System.out.println("Ha seleccionado la opción Ver cuenta");
         // Aquí puedes poner el código que deseas ejecutar para la Ver cuenta.
     }

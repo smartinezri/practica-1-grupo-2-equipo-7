@@ -16,13 +16,12 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 	private final String ORIGEN;
 	private ArrayList<Maleta> equipajes = new ArrayList<>();
 
-	public Vuelo(String aerolinea, String id, String tiempoSalida, String tiempoLlegada, String Destino,
-			String origen) {
+	public Vuelo(String origen, String destino, String aerolinea, String id, String tiempoSalida, String tiempoLlegada) {
 		this.AEROLINEA = aerolinea;
 		this.ID = id;
 		this.horarioSalida = tiempoSalida;
 		this.horarioLlegada = tiempoLlegada;
-		this.DESTINO = Destino;
+		this.DESTINO = destino;
 		this.ORIGEN = origen;
 	}
 
@@ -51,7 +50,7 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		/*
 		 * Regresa como string la informacion de origen - destino
 		 */
-		String info = this.ORIGEN + " - " + this.DESTINO;
+		String info = this.ID + ". " + this.ORIGEN + " - " + this.DESTINO;
 		return info;
 	}
 

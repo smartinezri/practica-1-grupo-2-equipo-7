@@ -1,6 +1,5 @@
 package Aerolinea;
 
-import Aerolinea.Boleto;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,26 +14,25 @@ public class Maleta implements Serializable {
     private int ancho;
     private int alto; // Al fin y al cabo es un volumen
 
-    private Pasajero propietario;
+    private Pasajero pasajero; //
     private Boleto boleto;
     private String destino_origen;
 
-    public Maleta(int id, int peso, int largo, int ancho, /* int alto, */ Pasajero propietario, Boleto boleto) {
+    public Maleta(int id, int peso, int largo, int ancho, int alto, Boleto boleto) {
         this.id = id;
         this.peso = peso;
         this.largo = largo;
         this.ancho = ancho;
-        // this.alto = alto
-        this.propietario = propietario;
+        this.alto = alto;
         this.boleto = boleto;
+        this.pasajero = boleto.getPasajero();
         this.destino_origen = boleto.getOrigenDestino();
     }
 
     public Maleta(){}
 
     public int calcularPrecio() {
-        return 0; // Crear formula para calcular el valor total con respecto al peso, largo y
-                  // ancho
+        return (1/2) * (this.peso) + ((this.alto * this.ancho * this.largo) / 10); // Crear formula para calcular el valor total con respecto al peso, largo y alto
     }
 
 
@@ -80,12 +78,12 @@ public class Maleta implements Serializable {
         this.alto = alto;
     }
 
-    public Pasajero getPropietario() {
-        return this.propietario;
+    public Pasajero getPasajero() {
+        return this.pasajero;
     }
 
-    public void setPropietario(Pasajero propietario) {
-        this.propietario = propietario;
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
     }
 
     public Boleto getBoleto() {
@@ -103,5 +101,6 @@ public class Maleta implements Serializable {
     public void setDestino_origen(String destino_origen) {
         this.destino_origen = destino_origen;
     }
+
 
 }
