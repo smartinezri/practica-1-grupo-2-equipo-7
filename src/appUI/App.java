@@ -132,6 +132,7 @@ public class App {
         System.out.println("Seleccione el numero de asiento disponible");
         int indexAsiento = scanner.nextInt();
         Asiento asiento = asientos.get(indexAsiento - 1);
+        boleto.setValorInicial(asiento.getValor());
         // Si se selecciona y es valido se prosigue...
         // Se muestra una previsualizacion del precio
 
@@ -165,6 +166,7 @@ public class App {
 
                 System.out.println("> Ingrese el valor del alto de la maleta");
                 int alto = scanner.nextInt();
+                
 
                 boleto.addEquipaje(new Maleta(c, peso, largo, ancho, alto, boleto));
                 System.out.println("Valor nuevo del boleto: ");
