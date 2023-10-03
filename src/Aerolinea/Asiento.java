@@ -24,7 +24,7 @@ public class Asiento {
     }
 
     public String getInfo() {
-        return ""; //Muestra la info del asiento
+        return "Esto es un asiento"; //Muestra la info del asiento
     }
 
 

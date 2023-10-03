@@ -136,7 +136,6 @@ public class App {
             int exit = 1;
 
             do {
-
                 System.out.println("...");
                 System.out.println("Ingrese el peso ...bla bla");
                 int peso = scanner.nextInt();
@@ -154,7 +153,6 @@ public class App {
                 System.out.println("Desea agregar un equipaje mas o continuar? 1/0");
                 exit = scanner.nextInt();
             } while (exit == 1);
-
         }
 
         System.out.println("Desea finalizar la compra? los detalles serian:");
