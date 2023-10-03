@@ -29,10 +29,8 @@ public class Maleta implements Serializable {
         this.destino_origen = boleto.getOrigenDestino();
     }
 
-    public Maleta(){}
-
     public int calcularPrecio() {
-        return (1/2) * (this.peso) + ((this.alto * this.ancho * this.largo) / 10); // Crear formula para calcular el valor total con respecto al peso, largo y alto
+        return (1/2) * (this.peso + ((this.alto * this.ancho * this.largo) / 10)) + 5; // Crear formula para calcular el valor total con respecto al peso, largo y alto
     }
 
 
