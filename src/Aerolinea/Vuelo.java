@@ -31,10 +31,11 @@ public class Vuelo implements Serializable { // se crea la clase e implementa se
 		 * Dependiendo de la cantidad que se le pase, genera n asientos de tipo vip y
 		 * j asientos de tipo economico
 		 */
+
 		for (int i = 1; i <= premium; i++) {
 			this.asientos.add(new Asiento("Vip", i, 100));
 		}
-		for (int j = 1; j <= economicos; j++) {
+		for (int j = premium+1; j <= premium + economicos; j++) {
 			this.asientos.add(new Asiento("Economico", j, 100));
 		}
 	}

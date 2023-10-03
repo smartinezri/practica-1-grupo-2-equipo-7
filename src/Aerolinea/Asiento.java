@@ -13,7 +13,7 @@ public class Asiento {
 
     public Asiento(String tipo, int n_silla, int valor) {
         this.tipo = tipo;
-        this.n_silla = n_silla + 1;
+        this.n_silla = n_silla;
         this.valor = valor;
     }
 
@@ -24,7 +24,7 @@ public class Asiento {
     }
 
     public String getInfo() {
-        return "Esto es un asiento " + n_silla; //Muestra la info del asiento
+        return n_silla + " - " + tipo + ", $" + valor ; //Muestra la info del asiento
     }
 
 

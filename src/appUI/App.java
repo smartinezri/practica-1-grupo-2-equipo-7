@@ -116,11 +116,9 @@ public class App {
             System.out.println(asiento.getInfo());
         }
 
-        
-
         System.out.println("Seleccione el numero de asiento disponible");
         int indexAsiento = scanner.nextInt();
-        Asiento asiento = asientos.get(indexAsiento-1);
+        Asiento asiento = asientos.get(indexAsiento - 1);
         // Si se selecciona y es valido se prosigue...
         // Se muestra una previsualizacion del precio
 
