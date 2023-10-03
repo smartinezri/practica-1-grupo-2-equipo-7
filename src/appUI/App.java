@@ -125,11 +125,31 @@ public class App {
         // Si sí, sigue, sino, selecciona otro asiento
 
         System.out.println("Selecciona si va a añadir equipaje o no");
-
+        int opcion = scanner.nextInt();
         // SI la respuesta es si, entonces agrega varios equipajes, sino, no
-        // Cada vez q se agrega un equipaje se va mostrando una previsualizacion del
-        // precio..
-        // Segun la cantidad de equipaje y los precios de cada uni
+        if (opcion == 1) {
+            // Cada vez q se agrega un equipaje se va mostrando una previsualizacion del
+            // precio..
+            // Segun la cantidad de equipaje y los precios de cada uni
+            while (true) {
+                System.out.println("...");
+                System.out.println("Ingrese el peso ...bla bla");
+                int peso = scanner.nextInt();
+        
+                System.out.println("Ingrese el peso ...bla bla");
+                int ancho = scanner.nextInt();
+        
+                System.out.println("Ingrese el peso ...bla bla");
+                int largo = scanner.nextInt();
+        
+
+                boleto.addEquipaje(new Maleta());
+                System.out.println("Valor nuevo: ");
+                System.out.println(boleto.getPrecio());
+            }
+            
+
+        }
 
         System.out.println("Desea finalizar la compra? los detalles serian:");
         // Se muestran todos los detalles de la compra y se pide la confirmacion para
@@ -137,6 +157,7 @@ public class App {
 
         // Si se confirma se efectua el pago y se asigna todo.
         // --- nota, no se asigna nada hasta q se haya pagado y verificado ---
+        boleto.asignarAsiento(asiento);
     }
 
     private static void reasignarVuelo() {

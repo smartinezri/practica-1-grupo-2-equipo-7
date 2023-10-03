@@ -16,7 +16,6 @@ public class Boleto implements Serializable {
     private String destino;
 
     private int valor;
-    private int init_valor;
     private ArrayList<Maleta> equipaje = new ArrayList<>();
     private Asiento asiento;
     private Pasajero pasajero;
@@ -53,11 +52,12 @@ public class Boleto implements Serializable {
     }
 
     public void updateValor() {
-        int valorEquipaje = 0;
+        int temp = 0;
         for (Maleta maleta : equipaje) {
-            valorEquipaje += maleta.calcularPrecio();
+            temp += maleta.calcularPrecio();
         }
-        this.valor = init_valor + valorEquipaje;
+        this.valorEquipaje = temp;
+        this.valor = this.valorInicial + this.valorEquipaje;
     }
 
     public void asignarAsiento(Asiento asiento) {
@@ -73,6 +73,11 @@ public class Boleto implements Serializable {
 
     public String getOrigenDestino() {
         return this.origen + " - " + this.destino;
+    }
+
+    public void addEquipaje(Maleta maleta) {
+        this.equipaje.add(maleta);
+        this.updateValor();
     }
 
     // ...get and set
