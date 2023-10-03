@@ -12,6 +12,7 @@ public class Pasajero {
     private boolean trabajador;
     private Maleta equipaje;
     private Usuario cuenta;
+    private Boleto boleto;
 
     public Pasajero(String nombre, boolean trabajador, Maleta equipaje, Usuario cuenta) {
         this.nombre = nombre;

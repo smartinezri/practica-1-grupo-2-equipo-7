@@ -6,13 +6,14 @@ import java.util.ArrayList;
 
 public class App {
 
+
     public static void main(String[] args) {
 
         // Crear las instancias de las clases
         // Se crea una cuenta, y un usuario, etc
 
         System.out.println("Bienvenido");
-
+        
         // haganme los mensajes para q diga las opciones disponibles
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -70,7 +71,8 @@ public class App {
          * el precio y etc
          */
         Scanner scanner = new Scanner(System.in);
-
+        Usuario user = new Usuario(0, null, 0, null);
+        
         System.out.println("Ha seleccionado la opción Comprar vuelo");
         System.out.println("Por favor ingrese el origen: ");
         String origen = scanner.nextLine();
@@ -93,17 +95,28 @@ public class App {
 
         System.out.println("Selecciona por favor el vuelo: ");
         int indexVuelo = scanner.nextInt();
+
         // Lee y genera los asientos
         Vuelo vuelo = vuelos.get(indexVuelo);
         vuelo.generarAsientos(10, 5);
 
+        
+        Boleto boleto = new Boleto(origen, destino, user, vuelo);
         System.out.println("Los tipos de asientos disponibles son los siguientes:");
+        
         // Primero muestra los precios de cada tipo de asiento, luego
         // Muestra los asientos disponibles y su tipo:
 
         System.out.println("Los asientos disponibles son los siguientes:");
+        ArrayList<Asiento> asientos = vuelo.getAsientos();
 
+        for (Asiento asiento : asientos) {
+            System.out.println(asiento.getInfo());
+        }
+        
         System.out.println("Seleccione el numero de asiento disponible");
+        int indexAsiento = scanner.nextInt();
+        Asiento asiento = asientos.get(indexAsiento);
         // Si se selecciona y es valido se prosigue...
         // Se muestra una previsualizacion del precio
 

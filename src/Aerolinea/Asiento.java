@@ -8,15 +8,22 @@ public class Asiento {
     private Pasajero pasajero;
     private int n_silla;
     private boolean disponible = true;
+    private Boleto boleto;
 
     public Asiento(String tipo, int n_silla) {
         this.tipo = tipo;
         this.n_silla = n_silla;
     }
 
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
+
+    public void asignarBoleto(Boleto boleto) {
+        this.boleto = boleto;
+        this.pasajero = boleto.getPasajero();
         this.disponible = false;
+    }
+
+    public String getInfo() {
+        return ""; //Muestra la info del asiento
     }
 
     public String getTipo() {

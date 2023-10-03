@@ -19,6 +19,14 @@ public class Boleto implements Serializable {
     private int init_valor;
     private ArrayList<Maleta> equipaje = new ArrayList<>();
     private Asiento asiento;
+    private Pasajero pasajero;
+    
+    //...precios
+    private int valorInicial;
+    private int valorEquipaje;
+    //precios...
+
+    private Vuelo vuelo;
 
     public Boleto(String id, String tipo, Usuario propietario, ArrayList<Maleta> equipaje, Asiento asiento,
             int init_valor,
@@ -35,6 +43,15 @@ public class Boleto implements Serializable {
         this.asiento = asiento;
     }
 
+    public Boleto (String origen, String destino, Usuario propietario, Vuelo vuelo) {
+        this.origen = origen;
+        this.destino = destino;
+        this.propietario = propietario;
+        this.vuelo = vuelo;
+        this.pasajero = new Pasajero(destino, false, null, propietario);
+        this.pasajero.setBoleto(this);
+    }
+
     public void updateValor() {
         int valorEquipaje = 0;
         for (Maleta maleta : equipaje) {
@@ -43,9 +60,15 @@ public class Boleto implements Serializable {
         this.valor = init_valor + valorEquipaje;
     }
 
+    public void asignarAsiento(Asiento asiento) {
+        this.asiento = asiento;
+        asiento.asignarBoleto(this);
+        this.valorInicial = asiento.getPrecio();
+    }
+
     public void resetEquipaje() {
         this.equipaje = null;
-        this.updateValor();
+        this.valor = 0;
     }
 
     public String getOrigenDestino() {
@@ -53,5 +76,6 @@ public class Boleto implements Serializable {
     }
 
     // ...get and set
+
 
 }
