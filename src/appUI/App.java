@@ -101,7 +101,7 @@ public class App {
 
         // Lee y genera los asientos
         Vuelo vuelo = vuelos.get(indexVuelo);
-        vuelo.generarAsientos(10, 5);
+        vuelo.generarAsientos(3, 5);
 
         Boleto boleto = new Boleto(origen, destino, user, vuelo);
         System.out.println("Los tipos de asientos disponibles son los siguientes:");
@@ -116,9 +116,11 @@ public class App {
             System.out.println(asiento.getInfo());
         }
 
+        
+
         System.out.println("Seleccione el numero de asiento disponible");
         int indexAsiento = scanner.nextInt();
-        Asiento asiento = asientos.get(indexAsiento);
+        Asiento asiento = asientos.get(indexAsiento-1);
         // Si se selecciona y es valido se prosigue...
         // Se muestra una previsualizacion del precio
 
