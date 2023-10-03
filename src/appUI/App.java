@@ -123,12 +123,13 @@ public class App {
         // Se muestra una previsualizacion del precio
 
         System.out.println("Desea continuar?");
-
         // Si sí, sigue, sino, selecciona otro asiento
 
         System.out.println("Selecciona si va a añadir equipaje o no");
         int opcion = scanner.nextInt();
         // SI la respuesta es si, entonces agrega varios equipajes, sino, no
+        
+        System.out.println("...............");
         if (opcion == 1) {
             // Cada vez q se agrega un equipaje se va mostrando una previsualizacion del
             // precio..
@@ -158,7 +159,9 @@ public class App {
         System.out.println("Desea finalizar la compra? los detalles serian:");
         // Se muestran todos los detalles de la compra y se pide la confirmacion para
         // pagar
-
+        System.out.println("Mostrar el detalles");
+        System.out.println(vuelo.getInfo());
+        
         // Si se confirma se efectua el pago y se asigna todo.
         // --- nota, no se asigna nada hasta q se haya pagado y verificado ---
         boleto.asignarAsiento(asiento);
