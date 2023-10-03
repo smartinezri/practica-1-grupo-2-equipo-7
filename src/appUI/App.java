@@ -6,16 +6,20 @@ import java.util.ArrayList;
 
 public class App {
 
+    private static Usuario user;
+
     public static void main(String[] args) {
 
         // Crear las instancias de las clases
         // Se crea una cuenta, y un usuario, etc
 
         System.out.println("Bienvenido");
-        
+
         // haganme los mensajes para q diga las opciones disponibles
         Scanner scanner = new Scanner(System.in);
         int opcion;
+
+        /* Espacio para iniciar sesion cargando cuenta o creando y guardando */
 
         do {
             System.out.println("   Menú:");
@@ -71,7 +75,7 @@ public class App {
          */
         Scanner scanner = new Scanner(System.in);
         Usuario user = new Usuario(0, null, 0, null);
-        
+
         System.out.println("Ha seleccionado la opción Comprar vuelo");
         System.out.println("Por favor ingrese el origen: ");
         String origen = scanner.nextLine();
@@ -99,10 +103,9 @@ public class App {
         Vuelo vuelo = vuelos.get(indexVuelo);
         vuelo.generarAsientos(10, 5);
 
-        
         Boleto boleto = new Boleto(origen, destino, user, vuelo);
         System.out.println("Los tipos de asientos disponibles son los siguientes:");
-        
+
         // Primero muestra los precios de cada tipo de asiento, luego
         // Muestra los asientos disponibles y su tipo:
 
@@ -112,7 +115,7 @@ public class App {
         for (Asiento asiento : asientos) {
             System.out.println(asiento.getInfo());
         }
-        
+
         System.out.println("Seleccione el numero de asiento disponible");
         int indexAsiento = scanner.nextInt();
         Asiento asiento = asientos.get(indexAsiento);
@@ -130,23 +133,27 @@ public class App {
             // Cada vez q se agrega un equipaje se va mostrando una previsualizacion del
             // precio..
             // Segun la cantidad de equipaje y los precios de cada uni
-            while (true) {
+            int exit = 1;
+
+            do {
+
                 System.out.println("...");
                 System.out.println("Ingrese el peso ...bla bla");
                 int peso = scanner.nextInt();
-        
+
                 System.out.println("Ingrese el peso ...bla bla");
                 int ancho = scanner.nextInt();
-        
+
                 System.out.println("Ingrese el peso ...bla bla");
                 int largo = scanner.nextInt();
-        
 
                 boleto.addEquipaje(new Maleta());
                 System.out.println("Valor nuevo: ");
                 System.out.println(boleto.getValor());
-            }
-            
+
+                System.out.println("Desea agregar un equipaje mas o continuar? 1/0");
+                exit = scanner.nextInt();
+            } while (exit == 1);
 
         }
 
