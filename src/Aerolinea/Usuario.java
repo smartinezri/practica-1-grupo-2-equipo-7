@@ -1,7 +1,8 @@
 package Aerolinea;
 
 import java.io.Serializable;
-import Boleto;
+import Aerolinea.Boleto;
+import java.util.ArrayList;
 
 public class Usuario {
 
@@ -9,32 +10,32 @@ public class Usuario {
 	private String id;
 	private int millas;
 	private Boleto historial;
-	
+
 	public Usuario(int dinero, String id, int millas, Boleto historial) {
 		this.dinero = dinero;
 		this.id = id;
 		this.millas = millas;
 		this.historial = historial;
 	}
-	
+
 	public void comprarBoleto() {
-		
+
 	}
-	
+
 	public void cancelarBoleto() {
-		
+
 	}
-	
+
 	public void reasignarAsiento() {
-		
+
 	}
-	
+
 	public void agregarMillas() {
-		
+
 	}
-	
+
 	public void quitarMillas() {
-		
+
 	}
-    
+
 }

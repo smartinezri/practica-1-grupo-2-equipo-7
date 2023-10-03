@@ -1,10 +1,9 @@
-package Aerolinea 
+package Aerolinea;
 
 import java.io.Serializable;
-import Usuario;
-import maleta;
-import Asiento;
+import java.util.ArrayList;
 
+import Aerolinea.*;
 
 public class Boleto implements Serializable {
     private static final long serialVersionUID;
@@ -19,9 +18,10 @@ public class Boleto implements Serializable {
     private int init_valor;
     private Maleta[] equipaje;
     private Asiento asiento;
-        
-    public Boleto(String id, String tipo, Usuario propietario, Maleta[] equipaje, Asiento asiento, int init_valor, String origen, String destino) {
-        
+
+    public Boleto(String id, String tipo, Usuario propietario, Maleta[] equipaje, Asiento asiento, int init_valor,
+            String origen, String destino) {
+
         this.origen = origen;
         this.destino = destino;
 
@@ -32,7 +32,6 @@ public class Boleto implements Serializable {
         this.equipaje = equipaje;
         this.asiento = asiento;
     }
-    
 
     public void updateValor() {
         int valorEquipaje = 0;
