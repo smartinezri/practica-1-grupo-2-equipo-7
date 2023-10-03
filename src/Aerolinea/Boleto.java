@@ -65,6 +65,9 @@ public class Boleto implements Serializable {
         this.equipaje.add(maleta);
         this.updateValor();
     }
+    public String getInfo() {
+        return "";
+    }
 
 
     //...Metodos get y set...

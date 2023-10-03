@@ -19,8 +19,8 @@ public class Usuario {
 		this.historial = historial;
 	}
 
-	public void comprarBoleto() {
-
+	public void comprarBoleto(Boleto boleto) {
+		
 	}
 
 	public void cancelarBoleto() {
