@@ -17,6 +17,7 @@ public class Maleta implements Serializable {
     private Pasajero pasajero; //
     private Boleto boleto;
     private String destino_origen;
+    private String estado;
 
     public Maleta(int id, int peso, int largo, int ancho, int alto, Boleto boleto) {
         this.id = id;
@@ -99,6 +100,12 @@ public class Maleta implements Serializable {
     public void setDestino_origen(String destino_origen) {
         this.destino_origen = destino_origen;
     }
+    public String getEstado() {
+        return this.estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
 }

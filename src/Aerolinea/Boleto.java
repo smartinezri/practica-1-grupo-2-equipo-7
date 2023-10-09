@@ -65,6 +65,7 @@ public class Boleto implements Serializable {
     public void addEquipaje(Maleta maleta) {
         this.equipaje.add(maleta);
         this.updateValor();
+        GestionUsuario.inventarioMaletas.put(maleta.getId(),maleta);
     }
     public String getInfo() {
         return "Precio: " + this.valor +  ", Tipo: " + this.tipo + ", Numero de asiento: " + this.asiento.getN_silla() + "...";

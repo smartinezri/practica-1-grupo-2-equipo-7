@@ -3,12 +3,16 @@ package Aerolinea;
 import java.io.Serializable;
 import Aerolinea.Boleto;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class GestionUsuario{
     Scanner scanner = new Scanner(System.in);
     private Usuario user;
     private ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
+    //inventario de maletas
+    protected static Map<Integer,Maleta> inventarioMaletas = new HashMap<>();
 
     public GestionUsuario(){
 
@@ -41,7 +45,7 @@ public class GestionUsuario{
         if (!newContrasena.equals(confirContrasena)){
             System.out.println("Las contraseñas no coinciden, por favor inténtelo de nuevo");
         }
-    } while(newContrasena.equals(confirContrasena));
+    } while(!newContrasena.equals(confirContrasena));
     user.setContrasena(newContrasena);
     return user.getContrasena();
     }
@@ -54,6 +58,15 @@ public class GestionUsuario{
         }
         System.out.println("Datos incorrectos");
         return null;
+    }
+    //Rastrear maleta por ID
+    public String rastreoMaleta(int id){
+        Maleta maleta = GestionUsuario.inventarioMaletas.get(id);
+        if (maleta != null) {
+            return "Estado de la maleta con Id( "+id+") y a nombre de ("+maleta.getPasajero().getNombre()+"): "+ maleta.getEstado();
+        } else {
+            return "Maleta no encontrada";
+        }
     }
     
     public Scanner getScanner() {
@@ -79,4 +92,12 @@ public class GestionUsuario{
     public void setUsuarios(ArrayList<Usuario> Usuarios) {
         this.Usuarios = Usuarios;
     }
+    public Map<Integer,Maleta> getInventarioMaletas() {
+        return GestionUsuario.inventarioMaletas;
+    }
+
+    public void setInventarioMaletas(Map<Integer,Maleta> inventarioMaletas) {
+        GestionUsuario.inventarioMaletas = inventarioMaletas;
+    }
+
 }
