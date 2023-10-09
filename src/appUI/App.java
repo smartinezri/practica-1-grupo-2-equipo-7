@@ -18,9 +18,19 @@ public class App {
         // haganme los mensajes para q diga las opciones disponibles
         Scanner scanner = new Scanner(System.in);
         int opcion;
+        String nombre = null;
+        String id = null;
 
         /* Espacio para iniciar sesion cargando cuenta o creando y guardando */
-        Usuario user = new Usuario();
+        System.out.println("\nRegistrarse");
+        System.out.print("Nombre : ");
+        nombre = scanner.nextLine();
+        System.out.print("ID: ");
+        id = scanner.nextLine();
+
+        Usuario user = new Usuario(nombre, id);
+        
+        //Usuario user = new Usuario();
 
         do {
             System.out.println("+ - - - - - - - - - - - - - +");
@@ -72,7 +82,7 @@ public class App {
 
             }
 
-        } while (opcion != 5);
+        } while (opcion != 5 && (nombre != null && id != null));
 
         scanner.close();
         System.out.println("Bye");
@@ -210,5 +220,8 @@ public class App {
 
     private static void verCuenta(Usuario user) {
         // Aquí puedes poner el código que deseas ejecutar para la Ver cuenta.
+    	System.out.println("Estado de la cuenta\n");
+    	System.out.println(user.getNombre() + "     ID-" + user.getId());
+    	System.out.println("\nBalance: " + user.getDinero() + "     Millas: " + user.getMillas());
     }
 }
