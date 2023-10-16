@@ -7,25 +7,18 @@ import java.util.ArrayList;
 public class Usuario {
 
 	private int dinero;
-	private String id;
+	private int id;
 	private String nombre;
 	private int millas;
 	private ArrayList<Boleto> historial = new ArrayList<Boleto>();
-	private String correo_electronico;
+	private String mail;
 	private String contrasena;
-
-	public Usuario() {
-	}
 	
-	public Usuario(String nombre, String id) {
-		this.nombre = nombre;
-		this.id = id;
-	}
 
-	public Usuario(String nombre, String id, String correo_electronico, String contrasena){
+	public Usuario(String nombre, String mail, String contrasena, int id){
 		this.nombre = nombre;
 		this.id = id;
-		this.correo_electronico= correo_electronico;
+		this.mail = mail;
 		this.contrasena = contrasena;
 	}
 
@@ -42,6 +35,12 @@ public class Usuario {
 
 	public void reasignarAsiento() {
 
+	}
+
+	public String getInfo() {
+		return "Nombre: " + this.nombre + "   ID-" + this.id +
+				"\nBalance: " + this.dinero + "\nMillas: " + this.millas +
+				"\nVuelos comprados: " + this.historial.size();
 	}
 
 

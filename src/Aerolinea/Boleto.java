@@ -8,14 +8,15 @@ import Aerolinea.*;
 public class Boleto implements Serializable {
     private static final long serialVersionUID = 0;
 
+    private static int cont = 0;
     private String id;
     private String tipo;
     private Usuario user;
-    private String status = "Comprado";
+    private String status = "Pendiente";
     private String origen;
     private String destino;
 
-    private int valor;
+    private float valor;
 
     private ArrayList<Maleta> equipaje = new ArrayList<>();
     private Asiento asiento;
@@ -28,12 +29,14 @@ public class Boleto implements Serializable {
 
     private Vuelo vuelo;
 
-    public Boleto (String origen, String destino, Usuario propietario, Vuelo vuelo) {
+    public Boleto(String origen, String destino, Usuario propietario, Vuelo vuelo) {
+        cont++;
         this.origen = origen;
         this.destino = destino;
         this.user = propietario;
         this.vuelo = vuelo;
         this.pasajero = new Pasajero(propietario, this);
+        this.id = cont;
     }
 
     public void updateValor() {
@@ -66,8 +69,10 @@ public class Boleto implements Serializable {
         this.equipaje.add(maleta);
         this.updateValor();
     }
+
     public String getInfo() {
-        return "Precio: " + this.valor +  ", Tipo: " + this.tipo + ", Numero de asiento: " + this.asiento.getN_silla() + "...";
+        return "Precio: " + this.valor + ", Tipo: " + this.tipo + ", Numero de asiento: " + this.asiento.getN_silla()
+                + ", Estado: " + this.status;
     }
 
 
